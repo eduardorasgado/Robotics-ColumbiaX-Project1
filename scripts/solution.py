@@ -1,4 +1,4 @@
-#!usr/bin/env python
+#!/usr/bin/env python
 import rospy
 #type of message to publish
 from std_msgs.msg import Int16
@@ -13,7 +13,7 @@ def callback(msg):
 
 	#now lets publish
 	resultFromSum = Int16(result)
-	rospy.loginfo("num1: {}, num2: {}, sum: {}".format(um1,num2,result))
+	rospy.loginfo("num1: {}, num2: {}, sum: {}".format(num1,num2,result))
 	publisher.publish(resultFromSum)
 
 def main():
