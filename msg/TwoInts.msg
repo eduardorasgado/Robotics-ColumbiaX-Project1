@@ -1,1 +1,2 @@
-int16 sum
+int16 a
+int16 b
