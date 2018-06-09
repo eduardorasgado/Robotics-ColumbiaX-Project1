@@ -5,7 +5,6 @@ from std_msgs.msg import Int16
 #message to subscribe
 from project1.msg import TwoInts
 
-result=0;
 
 def callback(msg):
 	num1 = msg.a
@@ -13,15 +12,16 @@ def callback(msg):
 	result = num1 + num2
 
 	#now lets publish
-	resultFromSum = Int16()
-	resultFromSum.data = result
-	publisher.publish
+	resultFromSum = Int16(result)
+	rospy.loginfo("num1: {}, num2: {}, sum: {}".format(um1,num2,result))
+	publisher.publish(resultFromSum)
 
 def main():
 	#initialize the node
 	rospy.init_node('two_ints_publisher_node')
 
 	#create a publisher
+	global publisher
 	#the topic, the message type, queue
 	publisher = rospy.Publisher('sum', Int16, queue_size=0)
 
